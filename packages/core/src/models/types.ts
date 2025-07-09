@@ -31,67 +31,66 @@ import type {
   LANGUAGE_OPTIONS,
   LEVEL_OPTIONS,
   LOCALE_LANGUAGE_OPTIONS,
-  NETWORK_GROUP_OPTIONS,
   NETWORK_OPTIONS,
   SECTION_IDS,
   TEMPLATE_OPTIONS,
 } from '@/models'
 
 /**
- * Type for all possible countries and regions in the world.
+ * A union type for all possible countries and regions in the world.
  */
 export type Country = (typeof COUNTRY_OPTIONS)[number]
 
 /**
- * Type for all possible degrees.
+ * A union type for all possible degrees.
  */
 export type Degree = (typeof DEGREE_OPTIONS)[number]
 
 /**
- * Type for language fluency levels.
+ * A union type for all possible language fluency levels.
  */
 export type Fluency = (typeof FLUENCY_OPTIONS)[number]
 
 /**
- * Type for keywords.
+ * Keywords type, just an alias for a string array.
  */
 type Keywords = string[]
 
 /**
- * Type for all supported languages.
+ * A union type for all supported languages.
  */
 export type Language = (typeof LANGUAGE_OPTIONS)[number]
 
 /**
- * Type for skill proficiency levels.
+ * A union type for all possible skill proficiency levels.
  */
 export type Level = (typeof LEVEL_OPTIONS)[number]
 
 /**
- * Type for all possible section IDs.
+ * A union type for all possible section IDs.
  */
 export type SectionID = (typeof SECTION_IDS)[number]
 
 /**
- * Type for template options.
+ * A union type for all possible template options.
  */
 export type TemplateOption = (typeof TEMPLATE_OPTIONS)[number]
 
 /**
- * Type for all possible locale languages.
+ * A union type for all possible locale languages.
  */
 export type LocaleLanguageOption = (typeof LOCALE_LANGUAGE_OPTIONS)[number]
 
 /**
- * Defines supported social media and professional network identifiers.
+ * A union type for all possible social network options.
  */
 export type Network = (typeof NETWORK_OPTIONS)[number]
 
 /**
- * Categorizes networks for potential grouping or display purposes. */
-export type NetworkGroup = (typeof NETWORK_GROUP_OPTIONS)[number]
-
-/** Represents a single award item. */
+ * A single award item.
+ *
+ * @see {@link awardItemSchema} for its schema constraints.
+ */
 type AwardItem = {
   /** The organization or entity that gave the award. */
   awarder: string
@@ -112,13 +111,21 @@ type AwardItem = {
   }
 }
 
-/** Represents the 'awards' section of the resume content. */
+/**
+ * The 'awards' section of the resume content.
+ *
+ * @see {@link awardsSchema} for its schema constraints.
+ */
 export type Awards = {
   /** An array of award items. */
   awards?: AwardItem[]
 }
 
-/** Represents the basic personal information. */
+/**
+ * The basic personal information.
+ *
+ * @see {@link basicsSchema} for its schema constraints.
+ */
 type BasicsItem = {
   /** Full name. */
   name: string
@@ -143,13 +150,19 @@ type BasicsItem = {
   }
 }
 
-/** Represents the 'basics' section of the resume content. */
+/**
+ * The 'basics' section of the resume content.
+ */
 export type Basics = {
   /** The basic personal information item. */
   basics: BasicsItem
 }
 
-/** Represents a single certification item. */
+/**
+ * A single certification item.
+ *
+ * @see {@link certificateItemSchema} for its schema constraints.
+ */
 type CertificateItem = {
   /** The organization that issued the certificate. */
   issuer: string
@@ -168,13 +181,21 @@ type CertificateItem = {
   }
 }
 
-/** Represents the 'certificates' section of the resume content. */
+/**
+ * The 'certificates' section of the resume content.
+ *
+ * @see {@link certificatesSchema} for its schema constraints.
+ */
 export type Certificates = {
   /** An array of certificate items. */
   certificates?: CertificateItem[]
 }
 
-/** Represents a single education history item. */
+/**
+ * A single education history item.
+ *
+ * @see {@link educationItemSchema} for its schema constraints.
+ */
 type EducationItem = {
   /** Field of study (e.g., "Computer Science"). */
   area: string
@@ -213,13 +234,21 @@ type EducationItem = {
   }
 }
 
-/** Represents the 'education' section of the resume content. */
+/**
+ * The 'education' section of the resume content.
+ *
+ * @see {@link educationSchema} for its schema constraints.
+ */
 export type Education = {
   /** An array of education history items. */
   education: EducationItem[]
 }
 
-/** Represents a single interest item. */
+/**
+ * A single interest item.
+ *
+ * @see {@link interestItemSchema} for its schema constraints.
+ */
 type InterestItem = {
   /** Name of the interest category (e.g., "Reading", "Photography"). */
   name: string
@@ -234,13 +263,21 @@ type InterestItem = {
   }
 }
 
-/** Represents the 'interests' section of the resume content. */
+/**
+ * The 'interests' section of the resume content.
+ *
+ * @see {@link interestsSchema} for its schema constraints.
+ */
 export type Interests = {
   /** An array of interest items. */
   interests?: InterestItem[]
 }
 
-/** Represents a single language proficiency item. */
+/**
+ * A single language proficiency item.
+ *
+ * @see {@link languageItemSchema} for its schema constraints.
+ */
 export type LanguageItem = {
   /** The level of proficiency of the language. */
   fluency: Fluency
@@ -261,13 +298,21 @@ export type LanguageItem = {
   }
 }
 
-/** Represents the 'languages' section of the resume content. */
+/**
+ * The 'languages' section of the resume content.
+ *
+ * @see {@link languagesSchema} for its schema constraints.
+ */
 export type Languages = {
   /** An array of language items. */
   languages?: LanguageItem[]
 }
 
-/** Represents the location information. */
+/**
+ * The location information.
+ *
+ * @see {@link locationItemSchema} for its schema constraints.
+ */
 type LocationItem = {
   /** City name. */
   city: string
@@ -292,13 +337,21 @@ type LocationItem = {
   }
 }
 
-/** Represents the 'location' section of the resume content. */
+/**
+ * The 'location' section of the resume content.
+ *
+ * @see {@link locationSchema} for its schema constraints.
+ */
 export type Location = {
   /** The location information item. */
   location?: LocationItem
 }
 
-/** Represents a single online profile item (e.g., GitHub, LinkedIn). */
+/**
+ * A single online profile item (e.g., GitHub, LinkedIn).
+ *
+ * @see {@link profileItemSchema} for its schema constraints.
+ */
 export type ProfileItem = {
   /** The name of the network or platform. */
   network: Network
@@ -315,13 +368,21 @@ export type ProfileItem = {
   }
 }
 
-/** Represents the 'profiles' section of the resume content. */
+/**
+ * The 'profiles' section of the resume content.
+ *
+ * @see {@link profilesSchema} for its schema constraints.
+ */
 export type Profiles = {
   /** An array of online profile items. */
   profiles?: ProfileItem[]
 }
 
-/** Represents a single project item. */
+/**
+ * A single project item.
+ *
+ * @see {@link projectItemSchema} for its schema constraints.
+ */
 type ProjectItem = {
   /** Name of the project. */
   name: string
@@ -354,13 +415,21 @@ type ProjectItem = {
   }
 }
 
-/** Represents the 'projects' section of the resume content. */
+/**
+ * The 'projects' section of the resume content.
+ *
+ * @see {@link projectsSchema} for its schema constraints.
+ */
 export type Projects = {
   /** An array of project items. */
   projects?: ProjectItem[]
 }
 
-/** Represents a single publication item. */
+/**
+ * A single publication item.
+ *
+ * @see {@link publicationItemSchema} for its schema constraints.
+ */
 type PublicationItem = {
   /** Name or title of the publication. */
   name: string
@@ -383,13 +452,21 @@ type PublicationItem = {
   }
 }
 
-/** Represents the 'publications' section of the resume content. */
+/**
+ * The 'publications' section of the resume content.
+ *
+ * @see {@link publicationsSchema} for its schema constraints.
+ */
 export type Publications = {
   /** An array of publication items. */
   publications?: PublicationItem[]
 }
 
-/** Represents a single reference item. */
+/**
+ * A single reference item.
+ *
+ * @see {@link referenceItemSchema} for its schema constraints.
+ */
 type ReferenceItem = {
   /** Name of the reference. */
   name: string
@@ -410,13 +487,21 @@ type ReferenceItem = {
   }
 }
 
-/** Represents the 'references' section of the resume content. */
+/**
+ * The 'references' section of the resume content.
+ *
+ * @see {@link referencesSchema} for its schema constraints.
+ */
 export type References = {
   /** An array of reference items. */
   references?: ReferenceItem[]
 }
 
-/** Represents a single skill item. */
+/**
+ * A single skill item.
+ *
+ * @see {@link skillItemSchema} for its schema constraints.
+ */
 type SkillItem = {
   /** Proficiency level in the skill. */
   level: Level
@@ -435,13 +520,21 @@ type SkillItem = {
   }
 }
 
-/** Represents the 'skills' section of the resume content. */
+/**
+ * The 'skills' section of the resume content.
+ *
+ * @see {@link skillsSchema} for its schema constraints.
+ */
 export type Skills = {
   /** An array of skill items. */
   skills?: SkillItem[]
 }
 
-/** Represents a single volunteer experience item. */
+/**
+ * A single volunteer experience item.
+ *
+ * @see {@link volunteerItemSchema} for its schema constraints.
+ */
 type VolunteerItem = {
   /** Name of the organization. */
   organization: string
@@ -470,13 +563,21 @@ type VolunteerItem = {
   }
 }
 
-/** Represents the 'volunteer' section of the resume content. */
+/**
+ * The 'volunteer' section of the resume content.
+ *
+ * @see {@link volunteerSchema} for its schema constraints.
+ */
 export type Volunteer = {
   /** An array of volunteer experience items. */
   volunteer?: VolunteerItem[]
 }
 
-/** Represents a single work experience item. */
+/**
+ * A single work experience item.
+ *
+ * @see {@link workItemSchema} for its schema constraints.
+ */
 type WorkItem = {
   /** Name of the company or employer. */
   name: string
@@ -509,13 +610,19 @@ type WorkItem = {
   }
 }
 
-/** Represents the 'work' section of the resume content. */
+/**
+ * The 'work' section of the resume content.
+ *
+ * @see {@link workSchema} for its schema constraints.
+ */
 export type Work = {
   /** An array of work experience items. */
   work?: WorkItem[]
 }
 
-/** Union type representing the structure for any top-level resume section. */
+/**
+ * The structure for any top-level resume section.
+ */
 export type SectionDefaultValues =
   | Awards
   | Basics
@@ -533,8 +640,7 @@ export type SectionDefaultValues =
   | Work
 
 /**
- * Type defining the structure for a single default item within each resume
- * section.
+ * The structure for a single default item within each resume section.
  */
 export type ResumeItem = {
   award: AwardItem
@@ -554,7 +660,7 @@ export type ResumeItem = {
 }
 
 /**
- * Defines the structure for the entire resume content.
+ * The structure for the entire resume content.
  *
  * @remarks - only `basics` and `education` sections are strictly required.
  */
@@ -612,7 +718,9 @@ export type ResumeContent = {
   }
 }
 
-/** Defines the structure for page margin settings. */
+/**
+ * The structure for page margin settings.
+ */
 type ResumeLayoutMargins = {
   /** Top margin value (e.g., "2.5cm"). */
   top?: string
@@ -625,7 +733,7 @@ type ResumeLayoutMargins = {
 }
 
 /**
- * The type of fontspec numbers style.
+ * The fontspec numbers style.
  *
  * - `Lining` - standard lining figures (default for CJK languages)
  * - `OldStyle` - old style figures with varying heights (default for Latin
@@ -636,18 +744,20 @@ type ResumeLayoutMargins = {
 export type FontspecNumbers = (typeof FONTSPEC_NUMBERS_OPTIONS)[number]
 
 /**
- * The type of font size.
+ * The font size.
  */
 export type FontSize = (typeof FONT_SIZE_OPTIONS)[number]
 
-/** Defines typography settings like font size. */
+/**
+ * The typography settings like font size.
+ */
 type ResumeLayoutTypography = {
   /** Base font size for the document (e.g., "10pt", "11pt"). */
   fontSize?: string
 }
 
 /**
- * LaTeX specific settings.
+ * The LaTeX specific settings.
  */
 type ResumeLayoutLaTeX = {
   /** LaTeX fontspec package configurations. */
@@ -657,23 +767,31 @@ type ResumeLayoutLaTeX = {
   }
 }
 
-/** Defines locale settings, primarily the language for translations. */
+/**
+ * The locale settings, primarily the language for translations.
+ */
 type ResumeLayoutLocale = {
   /** The selected language for the resume content and template terms. */
   language?: LocaleLanguageOption
 }
 
-/** Defines page-level settings like page numbering. */
+/**
+ * The page-level settings like page numbering.
+ */
 type ResumeLayoutPage = {
   /** Whether to display page numbers. */
   showPageNumbers?: boolean
 }
 
-/** Defines the selected template identifier. */
+/**
+ * The selected template identifier.
+ */
 type ResumeTemplate = TemplateOption
 
-/** Defines the overall layout configuration, including template, margins,
- * typography, locale, and computed environment settings. */
+/**
+ * The overall layout configuration, including template, margins,
+ * typography, locale, and computed environment settings.
+ * */
 export type ResumeLayout = {
   /** The selected template configuration. */
   template?: ResumeTemplate
@@ -690,8 +808,7 @@ export type ResumeLayout = {
 }
 
 /**
- * Represents the complete resume data structure, including metadata, content,
- * layout configuration, and build information.
+ * The complete resume data structure, including content and layout.
  */
 export type Resume = {
   /** Contains all the textual and structured content of the resume sections. */
